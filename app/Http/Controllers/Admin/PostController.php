@@ -4,12 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Tag;
 use App\Models\Category;
+use App\Mail\ConfirmationMail;
 use App\Models\Post;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Mail;
 
 
 class PostController extends Controller
@@ -65,6 +67,10 @@ class PostController extends Controller
         $post->save();
 
         if(array_key_exists('tags', $data)) $post->tags()->attach($data['tags']);
+
+        $mail = new ConfirmationMail();
+        $reciver = Auth::user()->email;
+        Mail::to($reciver)->send($mail);
 
         return redirect()->route('admin.posts.show', $post)->with('message', "Post creato con successo!")->with('type', 'success');
     }

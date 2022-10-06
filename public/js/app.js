@@ -37382,9 +37382,14 @@ var placeholder = "https://media.istockphoto.com/vectors/thumbnail-image-vector-
 var imageField = document.getElementById('image');
 var preview = document.getElementById('thumb');
 imageField.addEventListener('input', function () {
-  var _imageField$value;
+  if (imageField.files && imageField.files[0]) {
+    var reader = new FileReader();
+    reader.readAsDataURL(imageField.files[0]);
 
-  preview.src = (_imageField$value = imageField.value) !== null && _imageField$value !== void 0 ? _imageField$value : placeholder;
+    reader.onload = function (event) {
+      preview.src = event.target.result;
+    };
+  } else preview.src = placeholder;
 });
 
 /***/ }),

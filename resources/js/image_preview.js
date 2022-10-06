@@ -4,5 +4,12 @@ const imageField = document.getElementById('image');
 const preview = document.getElementById('thumb');
 
 imageField.addEventListener('input', () => {
-    preview.src = imageField.value ?? placeholder;
+    if (imageField.files && imageField.files[0]) {
+        let reader = new FileReader();
+
+        reader.readAsDataURL(imageField.files[0]);
+        reader.onload = event => {
+            preview.src = event.target.result;
+        }
+    } else preview.src = placeholder;
 })
