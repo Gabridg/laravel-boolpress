@@ -24897,7 +24897,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nheader {\r\n    border-bottom: 5px solid #666;\n}\r\n", ""]);
+exports.push([module.i, "\nheader {\n    border-bottom: 5px solid #666;\n}\n", ""]);
 
 // exports
 
@@ -24916,7 +24916,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\nul[data-v-d5a2cdd0] {\r\n    list-style-type: none;\n}\na[data-v-d5a2cdd0] {\r\n    text-decoration: none;\n}\r\n", ""]);
+exports.push([module.i, "\nul[data-v-d5a2cdd0] {\n    list-style-type: none;\n}\na[data-v-d5a2cdd0] {\n    text-decoration: none;\n}\n", ""]);
 
 // exports
 
@@ -24935,7 +24935,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.error-page[data-v-5069b291] {\r\n    height: calc(100vh - 60px);\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    background-color: rgba(0, 0, 0, 0.2);\n}\nh2[data-v-5069b291] {\r\n    color: #f00;\r\n    font-size: 40px;\n}\r\n", ""]);
+exports.push([module.i, "\n.error-page[data-v-5069b291] {\n    height: calc(100vh - 60px);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    background-color: rgba(0, 0, 0, 0.2);\n}\nh2[data-v-5069b291] {\n    color: #f00;\n    font-size: 40px;\n}\n", ""]);
 
 // exports
 
@@ -72840,7 +72840,7 @@ var routes = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\laravel\laravel-auth-master\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\laravel\laravel-boolpress\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })
