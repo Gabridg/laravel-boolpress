@@ -7,7 +7,7 @@
 
 <div class="container">
     <div class="clearfix">
-        <img class="float-left mr-3 img-fluid" src="{{ $post->image }}" alt="{{ $post->title }}">
+        <img class="float-left mr-3 img-fluid" src="{{ asset('storage/'.$post->image) }}" alt="{{ $post->title }}">
         <p>{{$post->content}}</p>
     </div>
     <div class="d-flex flex-column">

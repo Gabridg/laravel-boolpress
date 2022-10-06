@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 
 class PostController extends Controller
@@ -46,16 +47,20 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        
 
         $data = $request->all();
 
         $post =new Post();
 
         $post->fill($data);
+
         $post->slug = Str::slug($post->title, '-');
-        
         $post->user_id = Auth::id();
+
+        if(array_key_exists('image', $data)){
+            $image_url = Storage::put('/posts', $data['image']);
+            $post->image = $image_url;
+        };
 
         $post->save();
 
@@ -103,6 +108,12 @@ class PostController extends Controller
         $data['slug'] = Str::slug($data['title'], '-');
         
         if(array_key_exists('switch_author', $data)) $post->user_id = Auth::id();
+
+        if(array_key_exists('image', $data)){
+            if($post->image) Storage::delete($post->image);
+            $image_url = Storage::put('/posts', $data['image']);
+            $post->image = $image_url;
+        };
         
         $post->update($data);
         
@@ -121,7 +132,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        if(count($post->tags)) $post->tags->detach();
+        if($post->image) Storage::delete($post->image);
 
         $post->delete();
 
